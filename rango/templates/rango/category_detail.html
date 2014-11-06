@@ -1,0 +1,8 @@
+{% load url from future %}
+{{cat.name}} <a href="{% url 'rango:like' cat.id %}">like</a> </br>
+{{cat.likes}} Like{{cat.likes|pluralize}}
+
+{% for page in cat.page_set.all %}
+
+    <li><a href="{% url 'rango:detail' page.id %}">{{page.title}}</a></li>
+{% endfor %}

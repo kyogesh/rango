@@ -1,0 +1,13 @@
+{% load url from future %}
+<strong>Latest Pages:</strong> </br>
+{% for page in latest_pages %}
+    <li><a href="{% url 'rango:detail' page.id %}">{{page.title}}</a> {{page.views }} View{{page.views|pluralize}}</li>
+{% endfor %}
+
+</br></br>
+<strong>Categories:</strong> </br>
+{% for category in categories %}
+    <li><a href="{% url 'rango:category' category.slug%}">{{ category.name }}</a> {{ category.views }} View{{category.views|pluralize}}</li>
+{% endfor %}
+</br>
+<a href="{% url 'rango:about' %}">About...</a>
