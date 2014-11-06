@@ -1,0 +1,8 @@
+{% load url from future %}
+<h1>Create a new page</h1>
+
+<form id='new_page' method="post" action="{% url 'rango:addpage' %}">
+    {% csrf_token %}
+    {{ new_form }}
+    <input type="submit" value="add...">
+</form>
