@@ -1,0 +1,5 @@
+{% load url from future %}
+<strong>Categories:</strong> </br>
+{% for category in categories %}
+    <li><a href="{% url 'rango:category' category.slug%}">{{ category.name }}</a> {{ category.views }} View{{category.views|pluralize}}</li>
+{% endfor %}
