@@ -1,5 +1,9 @@
+{% extends 'rango/base.html' %}
+
+{% block body_block %}
 {% load url from future%}
 <strong>Pages:</strong> </br>
 {% for page in pages %}
     <li><a href="{% url 'rango:detail' page.id %}">{{ page.title }}</a> {{ page.views }} View{{page.views|pluralize}}</li>
 {% endfor %}
+{% endblock %}

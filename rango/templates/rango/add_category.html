@@ -1,4 +1,6 @@
+{% extends 'rango/base.html' %}
 {% load url from future %}
+{% block body_block %}
 <h1>Create a new Category </h1>
 
 <form id='new_category' method="post" action="{% url 'rango:newcategory' %}">
@@ -6,3 +8,4 @@
     {{ new_form }}
     <input type="submit" value="add...">
 </form>
+{% endblock %}

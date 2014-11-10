@@ -1,8 +1,21 @@
+{% extends 'rango/base.html' %}
 {% load url from future %}
-{{cat.name}} <a href="{% url 'rango:like' cat.id %}">like</a> </br>
-{{cat.likes}} Like{{cat.likes|pluralize}}
 
+{% block body_block %}
+
+{% if user.is_authenticated %}
+    {{cat.name}} <a href="{% url 'rango:like' cat.id %}">like</a> </br>
+{% endif %}
+{{cat.likes}} Like{{cat.likes|pluralize}}
+</br>
 {% for page in cat.page_set.all %}
 
     <li><a href="{% url 'rango:detail' page.id %}">{{page.title}}</a></li>
+{% empty %}
+    <p>No Pages in this Category.</p>
 {% endfor %}
+</br>
+{% if user.is_authenticated %}
+    <a href="{% url 'rango:newcategory' %}">Add a category...</a>
+{% endif%}
+{% endblock %}

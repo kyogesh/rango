@@ -1,5 +1,12 @@
 {% load url from future %}
+
 <strong>Categories:</strong> </br>
-{% for category in categories %}
-    <li><a href="{% url 'rango:category' category.slug%}">{{ category.name }}</a> {{ category.views }} View{{category.views|pluralize}}</li>
-{% endfor %}
+<ul class="nav nav-list">
+    {% if categories %}
+        {% for category in categories %}
+            <li><a href="{% url 'rango:category' category.slug%}">{{ category.name }}</a></li>
+        {% endfor %}
+    {% else %}
+        <li>No categories at present.</li>
+   {% endif %}
+</ul>

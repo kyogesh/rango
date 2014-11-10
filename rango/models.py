@@ -1,11 +1,15 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 
-#class RangoUser(AbstractUser):
-#
-#    def __unicode__(self):
-#        return self.username
+class RangoUser(models.Model):
+
+    user = models.OneToOneField(User)
+    website = models.URLField(blank=True)
+    profile_pic = models.ImageField(upload_to='profile_images', blank=True)
+
+    def __unicode__(self):
+        return self.user.username
 
 class Category(models.Model):
 

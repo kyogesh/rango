@@ -1,13 +1,20 @@
+{% extends 'rango/base.html' %}
+
 {% load url from future %}
-<strong>Latest Pages:</strong> </br>
+
+{% block body_block %}
+{% if user.is_authenticated %}
+<h1>Hello {{ user.username }}!</h1>
+{% else %}
+<h1>Hello world!</h1>
+{% endif %}
+
+<strong>5 Latest Pages:</strong> </br>
 {% for page in latest_pages %}
     <li><a href="{% url 'rango:detail' page.id %}">{{page.title}}</a> {{page.views }} View{{page.views|pluralize}}</li>
 {% endfor %}
 
 </br></br>
-<strong>Categories:</strong> </br>
-{% for category in categories %}
-    <li><a href="{% url 'rango:category' category.slug%}">{{ category.name }}</a> {{ category.views }} View{{category.views|pluralize}}</li>
-{% endfor %}
-</br>
-<a href="{% url 'rango:about' %}">About...</a>
+<a href="{% url 'rango:about' %}">About...</a> </br>
+
+{% endblock %}

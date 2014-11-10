@@ -1,6 +1,14 @@
+{% extends 'rango/base.html' %}
+{% load url from future %}
+
+{% block body_block %}
 <strong>{{page.title }}</strong>  created: {{page.pub_date }} </br>
 Category: {{page.category}} {{ page.category.views}} View{{page.category.views|pluralize}}</br>
 <p>{{page.body}} </p></br>
 {{page.views}} View{{page.views|pluralize}} 
 
-
+</br>
+{% if user.is_authenticated %}
+    <a href="{% url 'rango:addpage' %}">Add a new page...</a>
+{% endif%}
+{% endblock %}
