@@ -17,7 +17,7 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '8_u^c&58#$tglt(8oyc7v6^k7q7=d=fj(1-h9@rre8kj^)^#@t'
+SECRET_KEY = os.environ['RANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -63,7 +63,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'rango_db',
         'USER': 'yogesh',
-        'PASSWORD': 'allright',
+        'PASSWORD': os.environ['PG_PASSWORD'],
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -83,6 +83,8 @@ USE_L10N = True
 USE_TZ = True
 
 SITE_ID = 1
+
+LOGIN_URL = '/rango/signin/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
