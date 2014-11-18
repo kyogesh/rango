@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 
+
 class RangoUser(models.Model):
 
     user = models.OneToOneField(User)
@@ -11,6 +12,7 @@ class RangoUser(models.Model):
     def __unicode__(self):
         return self.user.username
 
+
 class Category(models.Model):
 
     name = models.CharField(max_length=200, unique=True)
@@ -19,14 +21,15 @@ class Category(models.Model):
     likes = models.IntegerField(default=0)
 
     def __unicode__(self):
-        return self.name    
+        return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = self.name.replace(' ','-').lower()
+        self.slug = self.name.replace(' ', '-').lower()
         super(Category, self).save(*args, **kwargs)
 
     class Meta:
         verbose_name_plural = "Categories"
+
 
 class Page(models.Model):
 
@@ -40,8 +43,8 @@ class Page(models.Model):
 
     def save(self, *args, **kwargs):
         site = Site.objects.get_current()
-        self.slug = self.title.replace(' ','-').lower()
-        self.url = site.domain+self.slug+'/'
+        self.slug = self.title.replace(' ', '-').lower()
+        self.url = site.domain + self.slug + '/'
         super(Page, self).save(*args, **kwargs)
 
     def __unicode__(self):

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load url from future %}
+{% load static %}
+<html>
+    <head>
+    <link href="{% static 'css/bootstrap-justified.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+
+    <title>Rango - with jQuery </title>
+    <script src="{% static 'js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/test_jquery.js' %}"></script>
+    </head>
+
+    <body>
+        <p class="lead">This is a paragraph. It is just for demostration. Viewer discretion is advised.</p>
+    <div class="progress progress-striped active">
+        <div class="bar" style="width: 0%;"></div> </br>
+    </div>    
+    rendered as <em>italicized</em> text <br>
+    <p class="muted"> <abbr title="This is the attribute value or it can be" class="initialism">Fusce dapibus,</abbr> tellus ac cursus commodo, tortor mauris nibh.</p>
+    <blockquote>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+    </blockquote>
+
+    </br>
+    Table
+    <table class="table table-striped">
+    <caption>Caption:</caption>
+    <thead>
+    <tr>
+    <th>TH</th>
+    <th></th>
+    <th>TH</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr >
+    <td>TD1</td>
+    <td>TD2</td>
+    <td>TD3</td>
+    <td>TD4</td>
+    </tr>
+    </tbody>
+    </table>
+
+    Form:
+    <form>
+    <fieldset>
+    <legend>Legend</legend>
+    <label class="label label-important">Label name</label>
+    <input type="text" placeholder="Type something…">
+    <span class="help-block">Example block-level help text here.</span>
+    <label class="checkbox">
+    <input type="checkbox"> Check me out
+    </label>
+    <button type="submit" class="btn">Submit</button>
+    </fieldset>
+    </form>
+
+    Button:
+    <div class="btn-group">
+    <button class="btn dropdown-toggle" data-toggle="dropdown">Action
+    <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li>a</li>
+        <li>b</li>
+        <li>d</li>
+        <li>c</li> 
+    </ul>
+    </div>
+    <div class="btn-group dropup">
+    <button class="btn">Dropup</button>
+    <button class="btn dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li>a</li>
+        <li>b</li>
+        <li>d</li>
+        <li>c</li> 
+    </ul>
+    </div>
+
+    breadcrumbs:
+
+    <ul class="breadcrumb">
+    <li><a href="#">Home</a> <span class="divider">/</span></li>
+    <li><a href="#">Library</a> <span class="divider">/</span></li>
+    <li class="active">Data</li>
+    </ul>
+
+
+    </body>
+</html>

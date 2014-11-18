@@ -4,9 +4,9 @@
 {% block body_block %}
 
 {% if user.is_authenticated %}
-    {{cat.name}} <a href="{% url 'rango:like' cat.id %}">like</a> </br>
+    {{cat.name}} <button id="like">Like</button> </br>
 {% endif %}
-{{cat.likes}} Like{{cat.likes|pluralize}}
+<div id="like_count"> {{cat.likes}} Like{{cat.likes|pluralize}} </div>
 </br>
 {% for page in cat.page_set.all %}
 
