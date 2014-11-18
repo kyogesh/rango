@@ -100,4 +100,9 @@ TEMPLATE_DIRS = (os.path.join(SETTINGS_PATH, 'templates'), )
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(SETTINGS_PATH, 'media')
+MEDIA_ROOT = os.path.join(SETTINGS_PATH, 'media')\
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
