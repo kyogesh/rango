@@ -1,3 +1,5 @@
+import requests
+
 from django.shortcuts import render, get_object_or_404, render_to_response
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
@@ -15,10 +17,13 @@ def list_categories():
 
 
 def index(request):
+    r = requests.get('http://httpbin.org/status/418')
     latest_pages = Page.objects.order_by('-pub_date')[:5]
     categories = list_categories()
     return render(request, 'rango/page_list.html',
-                  {'latest_pages': latest_pages, 'categories': categories})
+                  {'latest_pages': latest_pages,
+                   'categories': categories,
+                   'teapot': r.text, })
 
 
 def detail(request, page_id):
